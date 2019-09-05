@@ -1,11 +1,12 @@
-import * as React from 'react';
-import {StatefulCalendar} from 'baseui/datepicker';
+import * as React from "react";
+import { StatefulCalendar } from "baseui/datepicker";
 
 export default () => {
   return (
     <StatefulCalendar
       // use the 'onChange' prop to pull data from the component into your application state
-      onChange={({date}) => console.log(date)}
+      onChange={({ date }) => console.log(date)}
+      initialState={{ value: new Date() }}
     />
   );
 };

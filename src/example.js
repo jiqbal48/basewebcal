@@ -85,12 +85,15 @@ export default () => {
       <br />
       <StatefulList
         initialState={{
-          items: ["Item 1", "Item 2", "Item 3"]
+          items: [1, 2, 3]
         }}
         overrides={{
           Label: {
-            style: {
-              color: "#892C21"
+            style: obj => {
+              console.log("incoming value: ", obj);
+              return {
+                color: obj.$value === 1 ? "palevioletred" : "green"
+              };
             },
             props: {
               "data-test-id": "hello-mars"

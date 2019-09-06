@@ -41,7 +41,7 @@ const overrideObj = {
       const { $theme, $selected, $isHovered, $isHighlighted, $date } = obj;
       console.log("full obj: ", obj);
       console.log("a single day: ", $date.getDay());
-      const isItToday = $date.getDay() === 4;
+      const isItToday = $date.getDate() === 6;
       console.log(isItToday);
       const bgColor = $selected
         ? $theme.colors.warning

@@ -2,7 +2,7 @@ import * as React from "react";
 import { StatefulCalendar } from "baseui/datepicker";
 import { StatefulList } from "baseui/dnd-list";
 import ModifiedSelect from "./nestedOverrides";
-import StyletronButton from "./learningStyletron";
+import StyletronButton, { MediaQueryExample } from "./learningStyletron";
 
 const arrowBtnOverrides = ({ $theme }) => {
   return {
@@ -84,7 +84,8 @@ const selectableDates = [
 export default () => {
   return (
     <div>
-      <StyletronButton />
+      <MediaQueryExample />
+      {/* <StyletronButton /> */}
       {/* <ModifiedSelect /> */}
       {/* <StatefulCalendar
         initialState={{ value: new Date("09/6/2019") }}

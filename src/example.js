@@ -84,7 +84,7 @@ export default () => {
   return (
     <div>
       <ModifiedSelect />
-      <StatefulCalendar
+      {/* <StatefulCalendar
         initialState={{ value: new Date("09/6/2019") }}
         // use the 'onChange' prop to pull data from the component into your application state
         onChange={({ date }) => console.log(date)}
@@ -111,7 +111,7 @@ export default () => {
             }
           }
         }}
-      />
+      /> */}
     </div>
   );
 };

@@ -12,21 +12,21 @@ export default () => {
             overrides: {
               Root: {
                 style: {
-                  borderTopLeftRadius: 0,
-                  borderTopRightRadius: 0,
-                  borderBottomRightRadius: 0,
-                  borderBottomLeftRadius: 0,
-                  backgroundColor: "slateblue"
+                  borderTopLeftRadius: 10,
+                  borderTopRightRadius: 10,
+                  borderBottomRightRadius: 10,
+                  borderBottomLeftRadius: 10,
+                  backgroundColor: "green"
                 }
               },
               Action: {
                 style: {
-                  borderTopLeftRadius: 0,
-                  borderTopRightRadius: 0,
-                  borderBottomRightRadius: 0,
-                  borderBottomLeftRadius: 0,
+                  borderTopLeftRadius: "10px",
+                  borderTopRightRadius: "10px",
+                  borderBottomLeftRadius: "10px",
+                  borderBottomRightRadius: "10px",
                   ":hover": {
-                    backgroundColor: "mediumpurple"
+                    backgroundColor: "blue"
                   },
                   ":focus": {
                     backgroundColor: "mediumpurple"
@@ -40,7 +40,7 @@ export default () => {
               },
               ActionIcon: {
                 props: {
-                  color: "lavender"
+                  color: "palevioletred"
                 }
               }
             }

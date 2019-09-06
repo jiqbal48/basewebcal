@@ -37,13 +37,22 @@ const overrideObj = {
   },
   Day: {
     // how to get value of day. if day is today's date. then color it red
-    style: ({ $theme, $selected, $isHovered, $isHighlighted }) => ({
-      backgroundColor: $selected
+    style: obj => {
+      const { $theme, $selected, $isHovered, $isHighlighted, $date } = obj;
+      console.log("full obj: ", obj);
+      console.log("a single day: ", $date.getDay());
+      const isItToday = $date.getDay() === 4;
+      console.log(isItToday);
+      const bgColor = $selected
         ? $theme.colors.warning
         : $isHovered || $isHighlighted
         ? $theme.colors.warning100
-        : "transparent"
-    })
+        : "transparent";
+      const realBgColor = isItToday ? "red" : bgColor;
+      return {
+        backgroundColor: realBgColor
+      };
+    }
   }
 };
 

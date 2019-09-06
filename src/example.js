@@ -57,10 +57,17 @@ const datesToExclude = [
   new Date("09/4/2019")
 ];
 const selectableDates = [
-  new Date("09/16/2019"),
+  new Date("09/5/2019"),
+  new Date("09/11/2019"),
   new Date("09/12/2019"),
-  new Date("09/30/2019"),
-  new Date("09/14/2019")
+  new Date("09/13/2019"),
+  new Date("09/14/2019"),
+  new Date("09/15/2019"),
+  new Date("09/16/2019"),
+  new Date("09/20/2019"),
+  new Date("09/27/2019"),
+  new Date("09/29/2019"),
+  new Date("09/30/2019")
 ];
 const today = new Date();
 export default () => {
@@ -68,7 +75,7 @@ export default () => {
     <StatefulCalendar
       // use the 'onChange' prop to pull data from the component into your application state
       onChange={({ date }) => console.log(date)}
-      filterDate={date => date > today}
+      excludeDates={datesToExclude}
       includeDates={selectableDates}
     />
   );

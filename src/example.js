@@ -46,13 +46,6 @@ const overrideObj = {
   }
 };
 
-/*
-      // initialState={{ value: new Date() }}
-      // overrides={overrideObj}
-            // excludeDates={datesToExclude}
-                  range
-      quickSelect
-*/
 const datesToExclude = [
   new Date("09/1/2019"),
   new Date("09/2/2019"),
@@ -75,7 +68,7 @@ const selectableDates = [
   new Date("09/29/2019"),
   new Date("09/30/2019")
 ];
-const today = new Date();
+
 export default () => {
   return (
     <StatefulCalendar

@@ -9,7 +9,7 @@ const arrowBtnOverrides = ({ $theme }) => {
   };
 };
 
-/* const overrideObj = {
+const overrideObj = {
   CalendarHeader: {
     style: ({ $theme }) => ({
       backgroundColor: $theme.colors.warning
@@ -44,6 +44,8 @@ const arrowBtnOverrides = ({ $theme }) => {
     })
   }
 };
+
+/*
       // initialState={{ value: new Date() }}
       // overrides={overrideObj}
             // excludeDates={datesToExclude}
@@ -58,6 +60,9 @@ const datesToExclude = [
 ];
 const selectableDates = [
   new Date("09/5/2019"),
+  new Date("09/6/2019"),
+  new Date("09/7/2019"),
+  new Date("09/8/2019"),
   new Date("09/11/2019"),
   new Date("09/12/2019"),
   new Date("09/13/2019"),
@@ -73,10 +78,13 @@ const today = new Date();
 export default () => {
   return (
     <StatefulCalendar
+      initialState={{ value: new Date("09/6/2019") }}
       // use the 'onChange' prop to pull data from the component into your application state
       onChange={({ date }) => console.log(date)}
       excludeDates={datesToExclude}
       includeDates={selectableDates}
+      value={new Date("09/30/2019")}
+      overrides={overrideObj}
     />
   );
 };

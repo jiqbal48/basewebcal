@@ -35,6 +35,7 @@ const overrideObj = {
     style: arrowBtnOverrides
   },
   Day: {
+    // how to get value of day. if day is today's date. then color it red
     style: ({ $theme, $selected, $isHovered, $isHighlighted }) => ({
       backgroundColor: $selected
         ? $theme.colors.warning

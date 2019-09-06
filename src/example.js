@@ -56,6 +56,12 @@ const datesToExclude = [
   new Date("09/3/2019"),
   new Date("09/4/2019")
 ];
+const selectableDates = [
+  new Date("09/16/2019"),
+  new Date("09/12/2019"),
+  new Date("09/30/2019"),
+  new Date("09/14/2019")
+];
 const today = new Date();
 export default () => {
   return (
@@ -63,6 +69,7 @@ export default () => {
       // use the 'onChange' prop to pull data from the component into your application state
       onChange={({ date }) => console.log(date)}
       filterDate={date => date > today}
+      includeDates={selectableDates}
     />
   );
 };

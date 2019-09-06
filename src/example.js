@@ -1,6 +1,7 @@
 import * as React from "react";
 import { StatefulCalendar } from "baseui/datepicker";
 import { StatefulList } from "baseui/dnd-list";
+import ModifiedSelect from "./nestedOverrides";
 
 const arrowBtnOverrides = ({ $theme }) => {
   return {
@@ -39,10 +40,10 @@ const overrideObj = {
     // how to get value of day. if day is today's date. then color it red
     style: obj => {
       const { $theme, $selected, $isHovered, $isHighlighted, $date } = obj;
-      console.log("full obj: ", obj);
-      console.log("a single day: ", $date.getDay());
+      // console.log("full obj: ", obj);
+      // console.log("a single day: ", $date.getDay());
       const isItToday = $date.getDate() === 6;
-      console.log(isItToday);
+      // console.log(isItToday);
       const bgColor = $selected
         ? $theme.colors.warning
         : $isHovered || $isHighlighted
@@ -82,6 +83,7 @@ const selectableDates = [
 export default () => {
   return (
     <div>
+      <ModifiedSelect />
       <StatefulCalendar
         initialState={{ value: new Date("09/6/2019") }}
         // use the 'onChange' prop to pull data from the component into your application state
@@ -99,7 +101,7 @@ export default () => {
         overrides={{
           Label: {
             style: obj => {
-              console.log("incoming value: ", obj);
+              // console.log("incoming value: ", obj);
               return {
                 color: obj.$value === 1 ? "palevioletred" : "green"
               };

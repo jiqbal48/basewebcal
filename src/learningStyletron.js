@@ -11,6 +11,8 @@ export default () => {
   return <Button>Button</Button>;
 };
 
+const MOBILE = "@media screen and (max-width: 880px)";
+
 export const MediaQueryExample = () => {
   const Block = styled("div", {
     backgroundColor: "darkolivegreen",
@@ -20,10 +22,10 @@ export const MediaQueryExample = () => {
     ":hover": {
       border: "2px dashed darkred"
     },
-    "@media screen and (max-width: 880px)": {
+    [MOBILE]: {
       backgroundColor: "cornflowerblue",
       color: "cornsilk"
     }
   });
-  return <Block>I become blue when the browser window shrinks</Block>;
+  return <Block>I become blue when the browser window gets below 880px</Block>;
 };

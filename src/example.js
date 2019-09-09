@@ -1,8 +1,47 @@
 import * as React from "react";
+import axios from "axios";
 import { StatefulCalendar } from "baseui/datepicker";
 import { StatefulList } from "baseui/dnd-list";
 import ModifiedSelect from "./nestedOverrides";
 import StyletronButton, { MediaQueryExample } from "./learningStyletron";
+
+const axiosConfig = {
+  "x-auth-token":
+    "PBVibrent-HBNxNeAa7v1ULigd8B4QkGG5jHdBQAtZ08KHvMzhAxhDLhEN1eNw2jf-6CLCT9rl80oHYwDNgXYAkD7g1K0dqsA9S26rCmVEKZtBXFCn-37k6RILSG8df2Y"
+};
+// axios.interceptors.request.use(axiosConfig);
+export const availableAppointmentsCall = config =>
+  new Promise((resolve, reject) => {
+    const failure = error => {
+      reject(error);
+    };
+    const success = response => {
+      if (response) {
+        resolve(response);
+      } else {
+        failure(new Error("NO DATA"));
+      }
+    };
+    axios
+      .get(
+        "https://pmistagingsub.joinallofus.org/api/schedule/availableTimes",
+        Object.assign(config, { axiosConfig })
+      )
+      .then(success)
+      .catch(failure);
+  });
+
+const timesConfig = {
+  siteId: "hpo-site-walgreensphoenixapachejunction",
+  numberOfDays: 60
+};
+const success = data => {
+  console.log("got data from api: ", data);
+};
+const error = error => {
+  console.log("got error from api: ", error);
+};
+availableAppointmentsCall(timesConfig).then(success, error);
 
 const arrowBtnOverrides = ({ $theme }) => {
   return {
@@ -15,7 +54,7 @@ const arrowBtnOverrides = ({ $theme }) => {
 const overrideObj = {
   CalendarHeader: {
     style: ({ $theme }) => ({
-      backgroundColor: $theme.colors.warning
+      backgroundColor: $theme.colors.primary
     })
   },
   MonthHeader: {
@@ -84,7 +123,7 @@ const selectableDates = [
 export default () => {
   return (
     <div>
-      <MediaQueryExample />
+      {/* <MediaQueryExample /> */}
       {/* <StyletronButton /> */}
       {/* <ModifiedSelect /> */}
       {/* <StatefulCalendar
@@ -115,6 +154,7 @@ export default () => {
           }
         }}
       /> */}
+      <p>loading data</p>
     </div>
   );
 };

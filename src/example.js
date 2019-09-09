@@ -10,8 +10,10 @@ const axiosConfig = {
     "PBVibrent-HBNxNeAa7v1ULigd8B4QkGG5jHdBQAtZ08KHvMzhAxhDLhEN1eNw2jf-6CLCT9rl80oHYwDNgXYAkD7g1K0dqsA9S26rCmVEKZtBXFCn-37k6RILSG8df2Y"
 };
 // axios.interceptors.request.use(axiosConfig);
-export const availableAppointmentsCall = config =>
-  new Promise((resolve, reject) => {
+export const availableAppointmentsCall = config => {
+  const newConfig = Object.assign(config, { headers: axiosConfig });
+  console.log("new config: ", newConfig);
+  return new Promise((resolve, reject) => {
     const failure = error => {
       reject(error);
     };
@@ -25,22 +27,24 @@ export const availableAppointmentsCall = config =>
     axios
       .get(
         "https://pmistagingsub.joinallofus.org/api/schedule/availableTimes",
-        Object.assign(config, { axiosConfig })
+        newConfig
       )
       .then(success)
       .catch(failure);
   });
+};
 
 const timesConfig = {
   siteId: "hpo-site-walgreensphoenixapachejunction",
   numberOfDays: 60
 };
 const success = data => {
-  console.log("got data from api: ", data);
+  console.log("Success! data from api: ", data);
 };
 const error = error => {
-  console.log("got error from api: ", error);
+  console.log("Error! error from api: ", error);
 };
+
 availableAppointmentsCall(timesConfig).then(success, error);
 
 const arrowBtnOverrides = ({ $theme }) => {

@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Card, StyledBody } from "baseui/card";
 import { FlexGrid, FlexGridItem } from "baseui/flex-grid";
+import { Block } from "baseui/block";
 import Calendar from "./Calendar";
 
 const LocationCard = () => (
@@ -15,25 +16,21 @@ const LocationCard = () => (
   </Card>
 );
 
-const itemProps = {
-  backgroundColor: "mono300",
-  height: "scale1000",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center"
-};
+const SelectTime = () => (
+  <Card overrides={{ Root: { style: { width: "328px" } } }}>
+    <StyledBody>
+      Hello mars. Hello mars. Hello mars. Hello mars. Hello mars. Hello mars.
+      Hello mars.
+    </StyledBody>
+  </Card>
+);
 
 export default () => (
-  <FlexGrid
-    flexGridColumnCount={2}
-    flexGridColumnGap="scale800"
-    flexGridRowGap="scale800"
-  >
-    <FlexGridItem>
-      <Calendar {...itemProps} />
-    </FlexGridItem>
-    <FlexGridItem>
-      <LocationCard {...itemProps} />
-    </FlexGridItem>
-  </FlexGrid>
+  <Block>
+    <Block>
+      <Calendar />
+      <LocationCard />
+    </Block>
+    <SelectTime />
+  </Block>
 );

@@ -1,6 +1,8 @@
 import * as React from "react";
 import { Card, StyledBody } from "baseui/card";
-import { FlexGrid, FlexGridItem } from "baseui/flex-grid";
+import { Label1, Paragraph1 } from "baseui/typography";
+import { Button } from "baseui/button";
+import { ButtonGroup, MODE } from "baseui/button-group";
 import { Block } from "baseui/block";
 import Calendar from "./Calendar";
 
@@ -16,18 +18,65 @@ const LocationCard = () => (
   </Card>
 );
 
+const Heading = () => {
+  const title = "Select time";
+  const instructions =
+    "All times listed below are in the selected location's local time zone.";
+
+  return (
+    <Block>
+      <Label1>{title}</Label1>
+      <Paragraph1>{instructions}</Paragraph1>
+    </Block>
+  );
+};
+
+const BlocksOfTime = ({ timeOfDay }) => {
+  const timeBlocks = [
+    "9:30 am",
+    "10:00 am",
+    "10:30 am",
+    "9:30 am",
+    "10:00 am",
+    "10:30 am",
+    "9:30 am",
+    "10:00 am",
+    "10:30 am"
+  ];
+  const [selected, setSelected] = React.useState();
+  return (
+    <Block display="flex">
+      <ButtonGroup
+        mode={MODE.radio}
+        selected={selected}
+        onClick={(event, index) => {
+          setSelected(index);
+        }}
+      >
+        {timeBlocks.map((time, index) => (
+          <Button key={index}>{time}</Button>
+        ))}
+      </ButtonGroup>
+    </Block>
+  );
+};
+
 const SelectTime = () => (
   <Card overrides={{ Root: { style: { width: "328px" } } }}>
     <StyledBody>
-      Hello mars. Hello mars. Hello mars. Hello mars. Hello mars. Hello mars.
-      Hello mars.
+      <Block display="flex" flexDirection="column">
+        <Heading />
+        <BlocksOfTime timeOfDay="morning" />
+        {/* <BlocksOfTime timeOfDay="afternoon" />
+        <BlocksOfTime timeOfDay="evening" /> */}
+      </Block>
     </StyledBody>
   </Card>
 );
 
 export default () => (
-  <Block>
-    <Block>
+  <Block display="flex">
+    <Block display="flex" flexDirection="column">
       <Calendar />
       <LocationCard />
     </Block>

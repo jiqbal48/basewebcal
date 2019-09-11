@@ -1,33 +1,43 @@
 import * as React from "react";
-import { Button } from "baseui/button";
+import { Button, Baseutton } from "baseui/button";
 import { ButtonGroup } from "baseui/button-group";
 
+const VButton = ({ children }) => {
+  const overrides = {
+    BaseButton: {
+      style: () => {
+        return {
+          border: `2px solid palevioletred`,
+          backgroundColor: "green"
+        };
+      }
+    }
+  };
+  return <Button overrides={overrides}>{children}</Button>;
+};
 export default () => (
   <ButtonGroup
     overrides={{
       Root: {
         style: {
-          border: "2px solid blue",
+          border: "2px solid green",
           display: "flex",
           flexDirection: "column"
         }
       }
     }}
   >
-    <Button>Label</Button>
-    <Button>Label</Button>
-    <Button>Label</Button>
-    <Button>Label</Button>
-    <Button>Label</Button>
-    <Button>Label</Button>
-    <Button>Label</Button>
-    <Button>Label</Button>
-    <Button>Label</Button>
-    <Button>Label</Button>
-    <Button>Label</Button>
-    <Button>Label</Button>
-    <Button>Label</Button>
-    <Button>Label</Button>
-    <Button>Label</Button>
+    <VButton>Label</VButton>
+    <VButton>Label</VButton>
+    <VButton>Label</VButton>
+    <VButton>Label</VButton>
+    <VButton>Label</VButton>
+    <VButton>Label</VButton>
+    <VButton>Label</VButton>
+    <VButton>Label</VButton>
+    <VButton>Label</VButton>
+    <VButton>Label</VButton>
+    <VButton>Label</VButton>
+    <VButton>Label</VButton>
   </ButtonGroup>
 );

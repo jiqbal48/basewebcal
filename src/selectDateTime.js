@@ -37,11 +37,11 @@ const BlocksOfTime = ({ timeOfDay }) => {
     "10:00 am",
     "10:30 am",
     "9:30 am",
-    "10:00 am",
-    "10:30 am",
-    "9:30 am",
-    "10:00 am",
+    "10:10 am",
     "10:30 am"
+    // "9:30 am",
+    // "10:00 am",
+    // "10:30 am"
   ];
   const [selected, setSelected] = React.useState();
   return (
@@ -49,8 +49,14 @@ const BlocksOfTime = ({ timeOfDay }) => {
       <ButtonGroup
         mode={MODE.radio}
         selected={selected}
+        kind="tertiary"
         onClick={(event, index) => {
           setSelected(index);
+        }}
+        override={{
+          Root: {
+            style: { color: "red" }
+          }
         }}
       >
         {timeBlocks.map((time, index) => (
@@ -77,8 +83,8 @@ const SelectTime = () => (
 export default () => (
   <Block display="flex">
     <Block display="flex" flexDirection="column">
-      <Calendar />
-      <LocationCard />
+      {/* <Calendar /> */}
+      {/* <LocationCard /> */}
     </Block>
     <SelectTime />
   </Block>

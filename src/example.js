@@ -5,8 +5,9 @@ import ModifiedSelect from "./nestedOverrides";
 import StyletronButton, { MediaQueryExample } from "./learningStyletron";
 import SelectDateTime from "./selectDateTime";
 import BlockExample from "./Block";
-
+import GroupOfButtons from "./ButtonGroup";
 export default () => {
   // return <BlockExample />;
-  return <SelectDateTime />;
+  // return <SelectDateTime />;
+  return <GroupOfButtons />;
 };
